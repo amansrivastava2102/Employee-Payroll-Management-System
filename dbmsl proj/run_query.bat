@@ -1,0 +1,4 @@
+@echo off
+echo Running Employee Compensation Analysis Query...
+mysql -u root -p"aman@123" -e "USE EmployeePayrollDB; SELECT j.job_title, d.dept_name, COUNT(e.emp_id) AS employee_count, ROUND(AVG(s.base_salary), 2) AS avg_base_salary, ROUND(AVG(p.overtime_pay), 2) AS avg_overtime, ROUND(AVG(p.bonus), 2) AS avg_bonus, ROUND(AVG(s.base_salary + p.overtime_pay + p.bonus), 2) AS avg_total_compensation FROM Employee e JOIN Department d ON e.dept_id = d.dept_id JOIN Job j ON e.job_id = j.job_id JOIN Salary s ON e.emp_id = s.emp_id JOIN Payroll p ON e.emp_id = p.emp_id WHERE s.end_date IS NULL AND p.pay_period_start = '2022-05-01' GROUP BY j.job_title, d.dept_name ORDER BY avg_total_compensation DESC;"
+echo Query executed successfully! 

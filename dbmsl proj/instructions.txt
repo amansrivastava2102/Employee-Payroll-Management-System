@@ -1,0 +1,67 @@
+# Employee Payroll Management System - Instructions
+
+## Database Setup
+
+The Employee Payroll Management System database has been successfully set up with:
+- Normalized database schema with 19 tables
+- Sample data with at least 15 records in each table
+- SQL queries for data analysis
+
+## How to Use the System
+
+1. The database schema has already been created using the `simplified_schema.sql` script.
+2. Sample data has been loaded from the following files:
+   - `sample_data_part1.sql`
+   - `sample_data_part2.sql`
+   - `sample_data_part3.sql`
+   - `sample_data_part4.sql`
+
+3. To run the entire setup again, use the batch file:
+   ```
+   .\run_db_setup.bat
+   ```
+
+4. To run the employee compensation analysis query, use:
+   ```
+   .\run_query.bat
+   ```
+
+5. To run other queries, you can use the MySQL command line:
+   ```
+   mysql -u root -p"your_password" -e "USE EmployeePayrollDB; SELECT * FROM Table;"
+   ```
+   
+   Or you can run queries from the `queries.sql` file using:
+   ```
+   mysql -u root -p"your_password" -D EmployeePayrollDB < queries.sql
+   ```
+
+## Database Features
+
+The database includes:
+- Strong entities (Department, Employee, Job, etc.)
+- Weak entities (Attendance, Dependent)
+- IS-A relationships (Benefit -> HealthInsurance, RetirementPlan)
+- Simple, composite, and multi-valued attributes
+- Various relationship types (one-to-many, many-to-many, self-referential)
+
+## Important Tables
+
+- `Employee`: Core employee information
+- `Department`: Department details
+- `Salary`: Employee salary history
+- `EmployeeLeave`: Employee leave records
+- `Payroll`: Monthly payroll calculations
+- `PerformanceReview`: Employee performance evaluations
+- `Project` and `EmployeeProject`: Project assignments
+
+## Common Queries
+
+The `queries.sql` file contains 20 different queries for data analysis, including:
+- Basic employee information
+- Department and project reports
+- Salary and compensation analysis
+- Leave and attendance tracking
+- Performance evaluation analytics
+
+For more details, refer to the `README.md` file in the project directory. 
